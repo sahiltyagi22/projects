@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the converter */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #333333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555555;
+      font-weight: bold;
+    }
+
+    .form-group input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn {
+      flex-basis: 48%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Temperature Converter</h1>
+    <div class="form-group">
+      <label>Enter temperature in Celsius:</label>
+      <input type="number" id="celsius" placeholder="Celsius">
+    </div>
+    <div class="form-group">
+      <label>Enter temperature in Fahrenheit:</label>
+      <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+    </div>
+    <div class="btn-container">
+      <button onclick="convertToCelsius()" class="btn">Convert to Celsius</button>
+      <button onclick="convertToFahrenheit()" class="btn">Convert to Fahrenheit</button>
+    </div>
+    <div class="form-group">
+      <span id="result"></span>
+    </div>
+  </div>
+
+  <script>
+    function convertToCelsius() {
+      var fahrenheitInput = document.getElementById("fahrenheit");
+      var celsiusResult = document.getElementById("result");
+      var fahrenheit = parseFloat(fahrenheitInput.value);
+      var celsius = (fahrenheit - 32) * 5 / 9;
+      celsiusResult.textContent = fahrenheit + "°F is " + celsius.toFixed(2) + "°C";
+    }
+
+    function convertToFahrenheit() {
+      var celsiusInput = document.getElementById("celsius");
+      var fahrenheitResult = document.getElementById("result");
+      var celsius = parseFloat(celsiusInput.value);
+      var fahrenheit = (celsius * 9 / 5) + 32;
+      fahrenheitResult.textContent = celsius + "°C is " + fahrenheit.toFixed(2) + "°F";
+    }
+  </script>
+</body>
+</html>
